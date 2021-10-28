@@ -10,9 +10,9 @@ Before starting here, make sure you have a Raspberry Pi with a basic Raspbian OS
 
 ## ASSUMPTIONS
 
-* You have some experience with Raspberry Pi (further also abbreviated to RPi because I'm lazy). Upgrading Python requires you to compile the latest version, and you may need some debugging skills to e.g. find missing libraries that you still need to install.
+* You have some experience with Raspberry Pi (further also abbreviated to RPi because I'm lazy). Upgrading Python requires you to compile the latest version, and you may need some debugging skills to e.g. find and install missing libraries.
 * Beware: this installation instruction was updated on 30-Oct-2021. Times change, and this information may be outdated when you read it.
-* This instruction was created using a Raspberry Pi 3 B+
+* This instruction was created using a Raspberry Pi 3 B+. It is expected it will work on RPi models 2 to 4.
 
 ## Introduction
 
@@ -60,6 +60,13 @@ Download the latest Python 3 (!) version from this location: [https://www.python
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 ```
 
+You should see something like.
+```python
+Python-3.10.0.tgz          100%[======================================>]  23.85M  3.65MB/s    in 6.4s
+
+2021-10-28 12:45:41 (3.74 MB/s) - ‘Python-3.10.0.tgz’ saved [25007016/25007016]
+```
+
 ### Compile and install Python
 
 Unpack the tarball. Again, change the version number if you are installing a different version as the below.
@@ -70,6 +77,8 @@ tar xf Python-3.10.0.tgz
 
 Go into the directory. Optimize for your system, start the compilation and install.
 
+**Beware**: the *make* step includes a lenghty test cycle, and takes *really* long (40 minutes on an RPi 3B+). Go for a coffee.
+
 ```
 cd Python-3.10.0
 ./configure --enable-optimizations
@@ -77,9 +86,7 @@ make -j 4
 sudo make install
 ```
 
-**Beware**: the compilation takes *really* long. Go for a coffee.
-
-## Set the new Python 3 version as the default
+## Set the new Python 3 version as default
 
 **Kudos**: It took me some time to find this out. My gratitude goes to [the information here](https://linuxconfig.org/how-to-change-from-default-to-alternative-python-version-on-debian-linux) and [some more here](https://stackoverflow.com/questions/62275714/how-to-change-the-default-python-version-in-raspberry-pi). 
 
