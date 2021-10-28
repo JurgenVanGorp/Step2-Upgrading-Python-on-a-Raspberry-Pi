@@ -2,6 +2,8 @@ Guide creation date: 27-Oct-2021
 # Step 2: Upgrading the Python version on a Raspberry Pi
 This guide explains how you can upgrade Python 3 on a Raspberry Pi.
 
+Previous topic: [Step 1: Initial setup of the Raspberry Pi.](https://github.com/JurgenVanGorp/Step1-Setting-up-the-Raspberry-Pi)
+
 ## PREREQUISITES
 
 Before starting here, make sure you have a Raspberry Pi with a basic Raspbian OS installed. You can follow [Step 1: setting up the Raspberry Pi](https://github.com/JurgenVanGorp/Step1-Setting-up-the-Raspberry-Pi) if you still need to do that.
@@ -107,4 +109,4 @@ sudo apt upgrade -y
 sudo reboot
 ```
 
---- end of file
+Next topic: [Step 3: Setting up Home Assistant native on the Raspberry Pi.](https://github.com/JurgenVanGorp/Step3-Home-Assistant-on-Raspberry-Pi-Native)
