@@ -29,7 +29,7 @@ sudo apt update -y
 sudo apt upgrade -y
 ```
 
-... and if you are the suspicious type:
+... and if you are of the suspicious type:
 
 ```
 sudo reboot
@@ -38,10 +38,10 @@ sudo reboot
 Install the following packages that are required when compiling a new version of Python 3.
 
 ```
-sudo apt install libssl-dev
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev
-sudo apt-get install libbz2-dev liblzma-dev libsqlite3-dev libncurses5-dev libgdbm-dev zlib1g-dev libreadline-dev libssl-dev tk-dev uuid-dev libffi-dev
-sudo apt-get install libgdbm-compat-dev
+sudo apt install libssl-dev -y
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev -y
+sudo apt-get install libbz2-dev liblzma-dev libsqlite3-dev libncurses5-dev libgdbm-dev zlib1g-dev libreadline-dev libssl-dev tk-dev uuid-dev libffi-dev -y
+sudo apt-get install libgdbm-compat-dev -y
 ```
 
 **Remember**: you may need to install more (or different versions) of the packages. Make sure to verify the logs for warnings and errors when doing the compilation later on.
@@ -50,21 +50,21 @@ sudo apt-get install libgdbm-compat-dev
 
 **KUDOS**: I freely used information [from this forum](https://www.raspberrypi.org/forums/viewtopic.php?p=1761359#p1761359) to create the following step-by-step guide.
 
-Download the latest Python 3 (!) version from this location: [https://www.python.org/downloads/source/]. At time of writing this was version 3.10.0.
+Download the latest Python 3 (!) version from this location: [https://www.python.org/downloads/source/].
 
-**Important**: Make sure to download the tarball.
+**WARNING**: At time of writing Python 3.10.0 was the latest version, but e.g. cryptography was not yet updated to the newest version. Since Home-Assistant uses the cryptography module, this version could not be used yet. In the below example I am therefore reverting to V3.9.7.
 
-**Beware**: Change the Python version to the one you want to download. The number in the line below may therefore need to be changed.
+Be careful: change the Python version to the one you want to download. The version numbers in folder and file names below may therefore need to be updated, but at time of writing this version worked for setting up Home-Assistant in the next step.
 
 ```
-wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
 ```
 
 You should see something like.
 ```python
-Python-3.10.0.tgz          100%[======================================>]  23.85M  3.65MB/s    in 6.4s
+Python-3.9.7.tgz        100%[============================>]  24.56M  9.57MB/s    in 2.6s
 
-2021-10-28 12:45:41 (3.74 MB/s) - ‘Python-3.10.0.tgz’ saved [25007016/25007016]
+2021-10-29 19:16:27 (9.57 MB/s) - ‘Python-3.9.7.tgz’ saved [25755357/25755357]
 ```
 
 ### Compile and install Python
@@ -72,7 +72,7 @@ Python-3.10.0.tgz          100%[======================================>]  23.85M
 Unpack the tarball. Again, change the version number if you are installing a different version as the below.
 
 ```
-tar xf Python-3.10.0.tgz
+tar xf Python-3.9.7.tgz
 ```
 
 Go into the directory. Optimize for your system, start the compilation and install.
@@ -80,7 +80,7 @@ Go into the directory. Optimize for your system, start the compilation and insta
 **Beware**: the *make* step includes a lenghty test cycle, and takes *really* long (40 minutes on an RPi 3B+). Go for a coffee.
 
 ```
-cd Python-3.10.0
+cd Python-3.9.7
 ./configure --enable-optimizations
 make -j 4
 sudo make install
@@ -95,7 +95,7 @@ There was already a Python installed on your RPi. When "just" starting Python, i
 **Attention**: Don't forget to change the "python3.10" to the version you are installing if it is different.
 
 ```
-sudo update-alternatives  --install  /usr/bin/python  python  /usr/local/bin/python3.10   1
+sudo update-alternatives  --install  /usr/bin/python  python  /usr/local/bin/python3.9   1
 ```
 
 Verify the Python versions with.
@@ -106,7 +106,7 @@ python3 --version
 pip3 --version
 ```
 
-All three commands should refer to the new versions you have installed. If that is the case ... then congrats: you have upgraded to the newest Python version.
+All three commands should refer to the new version you have installed. If that is the case ... then congrats: you are ready for the next step.
 
 And just to be on the safe side ...
 
