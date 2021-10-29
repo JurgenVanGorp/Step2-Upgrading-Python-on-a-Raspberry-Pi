@@ -90,12 +90,12 @@ sudo make install
 
 **Kudos**: It took me some time to find this out. My gratitude goes to [the information here](https://linuxconfig.org/how-to-change-from-default-to-alternative-python-version-on-debian-linux) and [some more here](https://stackoverflow.com/questions/62275714/how-to-change-the-default-python-version-in-raspberry-pi). 
 
-There was already a Python installed on your RPi. When "just" starting Python, it will still use the old version. This now needs to be updated.
+The default Raspberry Pi OS already has an older Python version installed. When giving the *python* command, the old version may still be used as the default, so pointers need to be updated.
 
-**Attention**: Don't forget to change the "python3.10" to the version you are installing if it is different.
+**Attention**: Don't forget to change the "python3.9" to the version you are installing if it is different.
 
 ```
-sudo update-alternatives  --install  /usr/bin/python  python  /usr/local/bin/python3.9   1
+sudo update-alternatives  --install  /usr/bin/python  python  /usr/local/bin/python3.9  1
 ```
 
 Verify the Python versions with.
