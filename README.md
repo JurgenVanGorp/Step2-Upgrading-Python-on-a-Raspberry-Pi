@@ -1,4 +1,4 @@
-Guide creation date: 27-Oct-2021 
+Guide creation date: 30-Oct-2021 
 # Step 2: Upgrading the Python version on a Raspberry Pi
 This guide explains how you can upgrade Python 3 on a Raspberry Pi.
 
@@ -39,8 +39,8 @@ Install the following packages that are required when compiling a new version of
 
 ```
 sudo apt install libssl-dev -y
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev -y
-sudo apt-get install libbz2-dev liblzma-dev libsqlite3-dev libncurses5-dev libgdbm-dev zlib1g-dev libreadline-dev libssl-dev tk-dev uuid-dev libffi-dev -y
+sudo apt-get install build-essential libffi-dev python-dev -y
+sudo apt-get install libbz2-dev liblzma-dev libsqlite3-dev libncurses5-dev libgdbm-dev zlib1g-dev libreadline-dev tk-dev uuid-dev -y
 sudo apt-get install libgdbm-compat-dev -y
 ```
 
@@ -50,11 +50,9 @@ sudo apt-get install libgdbm-compat-dev -y
 
 **KUDOS**: I freely used information [from this forum](https://www.raspberrypi.org/forums/viewtopic.php?p=1761359#p1761359) to create the following step-by-step guide.
 
-Download the latest Python 3 (!) version from this location: [https://www.python.org/downloads/source/].
-
 **WARNING**: At time of writing Python 3.10.0 was the latest version, but e.g. cryptography was not yet updated to the newest version. Since Home-Assistant uses the cryptography module, this version could not be used yet. In the below example I am therefore reverting to V3.9.7.
 
-Be careful: change the Python version to the one you want to download. The version numbers in folder and file names below may therefore need to be updated, but at time of writing this version worked for setting up Home-Assistant in the next step.
+Download the latest Python 3 version [from this location](https://www.python.org/downloads/source/). Be careful: change the Python version to the one you want to download. The version numbers in folder and file names below may therefore need to be updated, but at time of writing this version worked for setting up Home-Assistant in the next step.
 
 ```
 wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
