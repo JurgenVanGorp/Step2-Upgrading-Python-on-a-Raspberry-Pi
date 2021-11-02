@@ -1,8 +1,6 @@
 Guide creation date: 30-Oct-2021 
-# Step 2: Upgrading the Python version on a Raspberry Pi
+# Upgrading the Python version on a Raspberry Pi
 This guide explains how you can upgrade Python 3 on a Raspberry Pi.
-
-Previous topic: [Step 1: Initial setup of the Raspberry Pi.](https://github.com/JurgenVanGorp/Step1-Setting-up-the-Raspberry-Pi)
 
 ## PREREQUISITES
 
@@ -12,13 +10,8 @@ Before starting here, make sure you have a Raspberry Pi with a basic Raspbian OS
 
 * You have some experience with Raspberry Pi (further also abbreviated to RPi because I'm lazy). Upgrading Python requires you to compile the latest version, and you may need some debugging skills to e.g. find and install missing libraries.
 * Beware: this installation instruction was updated on 30-Oct-2021. Times change, and this information may be outdated when you read it.
-* This instruction was created using a Raspberry Pi 3 B+. It is expected it will work on RPi models 2 to 4.
-
-## Introduction
-
-The native Raspberry Pi OS may come with an older Python version, while e.g. Home-Assistant is using more recent versions. You will need to upgrade Python, or the HA installation will fail.
-
-**Reminder**: It is expected that you have a RPi installed and ready to use. Enabling SSH on the Raspberry Pi, and connecting to the RPi with SSH or [WinSCP on Windows](https://winscp.net/eng/index.php) makes it easier to copy-paste some of the commands below.
+* This instruction was created using a Raspberry Pi 3 B+. It is expected it will work on RPi models 2 to 4 too.
+* It is expected that you have a RPi installed and ready to use. Enabling SSH on the Raspberry Pi, and connecting to the RPi with SSH or [WinSCP on Windows](https://winscp.net/eng/index.php) makes it easier to copy-paste some of the commands below.
 
 ## Pre-Install necessary packages
 
@@ -113,5 +106,3 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo reboot
 ```
-
-Next topic: [Step 3: Setting up Home Assistant native on the Raspberry Pi.](https://github.com/JurgenVanGorp/Step3-Home-Assistant-on-Raspberry-Pi-Native)
